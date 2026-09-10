@@ -5,10 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vídeo privado</title>
 <style>
-  :root {
-    /* 1) CAMBIA ESTA CONTRASEÑA */
-    --password: "la-house-of-gad";
-  }
   * { box-sizing: border-box; }
   body {
     margin: 0;
@@ -17,8 +13,8 @@
     align-items: center;
     justify-content: center;
     font-family: system-ui, sans-serif;
-    /* 2) CAMBIA LA IMAGEN DE FONDO AQUi */
-    background: url('https://raw.githubusercontent.com/house-of-gad/house-of-gad.github.io/refs/heads/main/scr/img/house_background.png') center/cover no-repeat fixed;
+    /* CAMBIA LA IMAGEN DE FONDO AQUÍ */
+    background: url('TU-IMAGEN-DE-FONDO.jpg') center/cover no-repeat fixed;
     color: #fff;
   }
   .card {
@@ -64,17 +60,22 @@
 
     <div id="videoBox">
       <video controls>
-        <!-- 3) CAMBIA EL ENLACE DIRECTO DE TU VÍDEO -->
-        <source src="https://pub-bf01b59c470b41719c40785da53aa681.r2.dev/acariciame.mp4" type="video/mp4">
+        <source src="/api/video" type="video/mp4">
+        <track src="subtitulos.vtt" kind="subtitles" srclang="es" label="Español" default>
       </video>
     </div>
   </div>
 
 <script>
-  function checkPass() {
+  async function checkPass() {
     const input = document.getElementById('pass').value;
-    const real = getComputedStyle(document.documentElement).getPropertyValue('--password').trim().replace(/"/g, '');
-    if (input === real) {
+    const res = await fetch('/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ password: input })
+    });
+    if (res.ok) {
       document.getElementById('gate').style.display = 'none';
       document.getElementById('videoBox').style.display = 'block';
     } else {
