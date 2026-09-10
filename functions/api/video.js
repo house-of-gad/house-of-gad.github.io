@@ -7,7 +7,7 @@ export async function onRequestGet({ request, env }) {
   }
 
   const range = request.headers.get("range");
-  const object = await env.VIDEO_BUCKET.get("catwalk.mp4", {
+  const object = await env.VIDEO_BUCKET.get("acariciame.mp4", {
     range: range ? parseRange(range) : undefined,
   });
 
