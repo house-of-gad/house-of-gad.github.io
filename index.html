@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>House of Gad</title>
+<title>House of gad</title>
 <style>
   * { box-sizing: border-box; }
   body {
@@ -13,7 +13,7 @@
     align-items: center;
     justify-content: center;
     font-family: system-ui, sans-serif;
-    background: url('https://raw.githubusercontent.com/house-of-gad/house-of-gad.github.io/refs/heads/main/scr/img/house_background.png') center/cover no-repeat fixed;
+    background: url('/img/house_background.png') center/cover no-repeat fixed;
     color: #fff;
   }
   .card {
@@ -25,6 +25,7 @@
     width: 900px;
     text-align: center;
   }
+  <img src="/img/hog.png" alt="Logo House of Gad" style="width: 80px;">
   video { width: 100%; border-radius: 10px; margin-top: 12px; }
   input {
     padding: 10px 14px;
@@ -50,7 +51,7 @@
 <body>
   <div class="card">
     <div id="gate">
-      <h2>Latina Royale</h2>
+      <h2>House of Gad</h2>
       <p>Introduce la contraseña para ver el vídeo</p>
       <input type="password" id="pass" placeholder="Contraseña">
       <button onclick="checkPass()">Entrar</button>
@@ -60,6 +61,7 @@
     <div id="videoBox">
       <video controls>
         <source src="/api/video" type="video/mp4">
+        <track src="subtitulos.vtt" kind="subtitles" srclang="es" label="Español" default>
       </video>
     </div>
   </div>
