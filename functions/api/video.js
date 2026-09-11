@@ -6,8 +6,9 @@ export async function onRequestGet({ request, env }) {
     return new Response("No autorizado", { status: 401 });
   }
 
+
   const range = request.headers.get("range");
-  const object = await env.VIDEO_BUCKET.get("acariciame.mp4", {
+  const object = await env.VIDEO_BUCKET.get("drmxlre7.mp4", {
     range: range ? parseRange(range) : undefined,
   });
 
