@@ -59,7 +59,7 @@
     </div>
 
     <div id="videoBox">
-      <video controls>
+      <video id="videoPlayer" controls playsinline webkit-playsinline>
         <source src="/api/video" type="video/mp4">
         <track src="subtitulos.vtt" kind="subtitles" srclang="es" label="Español" default>
       </video>
@@ -78,6 +78,7 @@
     if (res.ok) {
       document.getElementById('gate').style.display = 'none';
       document.getElementById('videoBox').style.display = 'block';
+      document.getElementById('videoPlayer').play();
     } else {
       document.getElementById('error').textContent = 'Contraseña incorrecta';
     }
