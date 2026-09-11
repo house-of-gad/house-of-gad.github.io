@@ -16,7 +16,7 @@
     align-items: center;
     justify-content: center;
     font-family: system-ui, sans-serif;
-    background: url('/img/house_background.png') center/cover no-repeat fixed;
+    background: url('/img/house_background.png') center/cover no-repeat scroll;
     color: #fff;
   }
   .card {
@@ -29,7 +29,10 @@
     text-align: center;
   }
 
-  video { width: 60%; border-radius: 10px; margin-top: 12px; }
+  video { width: 80%; border-radius: 10px; margin-top: 12px; }
+  @media (max-width: 600px) {
+  video { width: 95%; }
+}
   input {
     padding: 10px 14px;
     border-radius: 8px;
